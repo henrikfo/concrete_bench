@@ -350,9 +350,9 @@ fn bench_teewondee(c: &mut Criterion){
     let precisions: Vec<usize> = vec![4, 5];
     */
     
-    let dims: Vec<usize> = vec![1024, 2048, 4096];
-    let noises: Vec<i32> = vec![-40, -62, -62];
-    let precisions: Vec<usize> = vec![4, 5, 6];
+    let dims: Vec<usize> = vec![512, 1024, 2048, 4096];
+    let noises: Vec<i32> = vec![-19, -40, -62, -62];
+    let precisions: Vec<usize> = vec![3, 4, 5, 6];
     
     
     for ((dim, noise), precision) in dims.iter().zip(noises.iter()).zip(precisions.iter()){
@@ -373,9 +373,9 @@ fn bench_teewondee(c: &mut Criterion){
         let ksk = LWEKSK::new(&sk_out, &sk, 6, 6);
         let ksk_clone = LWEKSK::new(&sk_out, &sk, 6, 6);
         
-        let tfhe = Tfheconcurrency::new(sk.clone(), sk_out.clone(), bsk.clone(), ksk_clone, enc4.clone(), 8, false);
+        //let tfhe = Tfheconcurrency::new(sk.clone(), sk_out.clone(), bsk.clone(), ksk_clone, enc4.clone(), 8, false);
         
-        println!("{}", tfhe.max_threads);
+        //println!("{}", tfhe.max_threads);
         // --- LWE --- //
         
         let msg1: f64 = 1.;
