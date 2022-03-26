@@ -147,9 +147,9 @@ fn bench_lwe(c: &mut Criterion){
     
     //let dims: Vec<usize> = vec![256, 512, 1024, 2048];
     //let noises: Vec<i32> = vec![-9, -19, -40, -62];
-    let dims: Vec<usize> = vec![512, 1024, 2048];
-    let noises: Vec<i32> = vec![-40, -40, -62];
-    let precisions: Vec<usize> = vec![3, 4, 5];
+    let dims: Vec<usize> = vec![512, 1024, 2048, 4096];
+    let noises: Vec<i32> = vec![-19, -40, -62, -62];
+    let precisions: Vec<usize> = vec![3, 4, 5, 6];
 
 
     
@@ -167,8 +167,8 @@ fn bench_lwe(c: &mut Criterion){
         let sk = LWESecretKey::new(&lwe_params);   
         let sk_rlwe = RLWESecretKey::new(&rlwe_params);    
         let sk_out = sk_rlwe.to_lwe_secret_key();
-        let bsk = LWEBSK::new(&sk, &sk_rlwe, 5, 5);
-        let ksk = LWEKSK::new(&sk_out, &sk, 5, 5);
+        let bsk = LWEBSK::new(&sk, &sk_rlwe, 6, 6);
+        let ksk = LWEKSK::new(&sk_out, &sk, 6, 6);
         
 
         // --- LWE --- //
@@ -456,8 +456,8 @@ fn bench_teewondee(c: &mut Criterion){
 }
 
 //criterion_group!(benches, bench_lwe, bench_vectorlwe);
-//criterion_group!(benches, bench_lwe);
+criterion_group!(benches, bench_lwe);
 //criterion_group!(benches, bench_vectorlwe);
-criterion_group!(benches, bench_teewondee);
+//criterion_group!(benches, bench_teewondee);
 //criterion_group!(benches, bench_lwe, bench_vectorlwe, bench_teewondee);
 criterion_main!(benches);

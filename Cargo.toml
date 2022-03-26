@@ -8,12 +8,12 @@ edition = "2018"
 
 [dependencies]
 concrete="^0.1"
-itertools="0.9.0"
+itertools="0.10.3"
 TFHE_concurrency = { git = "https://github.com/henrikfo/TFHE_concurrency" }
 
 [dev-dependencies]
 concrete="^0.1"
-itertools="0.9.0"
+itertools="0.10.3"
 criterion = "0.3.5"
 
 [profile.release]
