@@ -148,7 +148,7 @@ fn bench_lwe(c: &mut Criterion){
     //let dims: Vec<usize> = vec![256, 512, 1024, 2048];
     //let noises: Vec<i32> = vec![-9, -19, -40, -62];
     let dims: Vec<usize> = vec![512, 1024, 2048, 4096];
-    let noises: Vec<i32> = vec![-19, -40, -62, -62];
+    let noises: Vec<i32> = vec![-40, -40, -62, -62];
     let precisions: Vec<usize> = vec![3, 4, 5, 6];
 
 
